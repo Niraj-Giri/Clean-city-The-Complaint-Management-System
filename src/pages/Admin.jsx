@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Admin() {
+  const navigate = useNavigate();
   const [complaints, setComplaints] = useState([]);
   const [Emp, setEmp] = useState([]);
   // const statusOptions = ["pending", "Assigned","in progress", "completed"];
@@ -38,7 +40,7 @@ const [counts, setCount]=useState({})
     };
 
     fetchComplaintsCount()
-    const interval = setInterval(fetchComplaintsCount, 1000);
+    const interval = setInterval(fetchComplaintsCount, 100000);
     return () => clearInterval(interval);
 
        },[])
@@ -70,7 +72,7 @@ const [counts, setCount]=useState({})
     };
 
     fetchComplaints(); // initial fetch
-    const interval = setInterval(fetchComplaints, 1000);
+    const interval = setInterval(fetchComplaints, 1000000);
 
     return () => clearInterval(interval);
   }, []);
@@ -86,6 +88,7 @@ const [counts, setCount]=useState({})
         });
 
         setEmp(response.data);
+        console.log(response.data);
         
       } catch (error) {
         console.log(error);
@@ -93,7 +96,7 @@ const [counts, setCount]=useState({})
     };
 
     fetchEmployee();
-    const interval = setInterval(fetchEmployee, 1000);
+    const interval = setInterval(fetchEmployee, 100000);
     return () => clearInterval(interval);
   }, []);
 
@@ -127,7 +130,7 @@ const [counts, setCount]=useState({})
     try {
       await axios.put(
         `http://localhost:8081/cleancity/complaints/${compId}/assign`,
-        { assignedId: userId },
+        { assignedEmployeeId: userId },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -203,6 +206,11 @@ if (loading) {
     </span>
   );
 };
+
+
+const navigateToEmployeeList=()=>{
+  navigate("/ManageEmployee")
+}
  return (
   <div>
     {error === "forbidden" && <h2>🚫 Page Not Available</h2>}
@@ -219,6 +227,9 @@ if (loading) {
       <p>Completed: {counts["Completed"] || 0}</p>
       <h2>Total: {complaints.length}</h2>
     </div>
+     <div>
+      <p onClick={navigateToEmployeeList}>Manage Employee</p>
+     </div>
         <label>Search
           <input type="text" value={search} onChange={handleSearch} />
         </label>
@@ -235,7 +246,7 @@ if (loading) {
               <th>Status</th>
               <th>Assign To</th>
               <th>Image</th>
-              <th>After Image</th> {/* NEW COLUMN */}
+              <th>After Image</th>
             </tr>
           </thead>
           <tbody>
@@ -247,7 +258,6 @@ if (loading) {
                 <td>{c.userid}</td>
                 <td>{c.description}</td>
                <td>{getUrgencyIndicator(c.urgency)}</td>
-
                 <td>
                   {c.status}
                   {/* <select
@@ -257,17 +267,16 @@ if (loading) {
                     {statusOptions.map(option => (
                       <option key={option} value={option}>{option}</option>
                     ))}
-                  </select> */}
-                  
+                  </select> */} 
                 </td>
                 <td>
                   <select
-                    value={c.assignedId || ""}
+                    value={c.assignedEmployeeId|| ""}
                     onChange={e => handleEmpChange(c.id, e.target.value)}
                   >
                     <option value="">Select Employee</option>
                     {Emp.map(emp => (
-                      <option key={emp.id} value={emp.id}>
+                      <option key={emp.empId} value={emp.empId}>
                         {emp.firstName} {emp.lastName}
                       </option>
                     ))}
@@ -285,9 +294,13 @@ if (loading) {
                   )}
                 </td>
                 <td>
-                  {c.afterImage ? (
+                  {c.
+afterImageBase64
+ ? (
                     <img 
-                      src={`data:image/jpeg;base64,${c.afterImage}`} 
+                      src={`data:image/jpeg;base64,${c.
+afterImageBase64
+}`} 
                       alt="after image" 
                       style={{ width: "100px", height: "auto" }}
                     />

@@ -25,6 +25,7 @@ function Login() {
 
     if (response.ok) {
         const data = await response.json(); // 👈 await the promise
+        console.log(data);
         const { token, role } = data;      // 👈 destructure object
         localStorage.setItem("token", token);
        // optional if you want to store role
@@ -38,7 +39,7 @@ function Login() {
         {
             navigate("/home");
         }
-        if(role=="ROLE_EMP"){
+        if(role=="ROLE_EMPLOYEE"){
             navigate("/employee");
         }
         

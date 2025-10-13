@@ -13,7 +13,7 @@ function Employee() {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.get(
-        "http://localhost:8081/cleancity/employee/complaints",
+        "http://localhost:8081/cleancity/complaints/employee",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -53,7 +53,7 @@ function Employee() {
     };
 
     fetchComplaintsCount()
-    const interval = setInterval(fetchComplaintsCount, 1000);
+    const interval = setInterval(fetchComplaintsCount, 100000);
     return () => clearInterval(interval);
 
        },[])

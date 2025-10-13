@@ -6,6 +6,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Complaint from "./pages/Complaint";
 import Admin from "./pages/Admin";
 import Employee from "./pages/Employee";
+import ManageEmployee from "./pages/AdminNavigation/ManageEmployee";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/ManageEmployee" element={<ManageEmployee/>}/>
       <Route 
       path="/complaint"
        element={

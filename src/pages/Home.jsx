@@ -12,7 +12,7 @@ function Home() {
 
     const fetchComplaints = async () => {
       try {
-        const res = await axios.get("http://localhost:8081/cleancity/complaints", {
+        const res = await axios.get("http://localhost:8081/cleancity/complaints/user", {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -62,9 +62,9 @@ function Home() {
                 <td>{c.id}</td>
                 <td>{c.description}</td>
                 <td>{c.address}</td>
-                { c.status==="pending"? <td><b> {c.status}</b></td>:<td><b>{c.assignedName}</b></td>}
+                { c.status==="pending" || c.status==="Completed" || c.status==="in progress"? <td><b> {c.status}</b></td>:<td><b>{c.assignedEmployeeName}</b></td>}
                 
-                <td>{c.userid}</td>
+                <td>{c.userId}</td>
                 <td>
                   {c.imageBase64 ? (
                     <img 
@@ -77,9 +77,9 @@ function Home() {
                   )}
                 </td>
                 <td>
-                  {c.afterImage ? (
+                  {c.afterImageBase64? (
                     <img 
-                      src={`data:image/jpeg;base64,${c.afterImage}`} 
+                      src={`data:image/jpeg;base64,${c.afterImageBase64}`} 
                       alt="after image" 
                       style={{ width: "100px", height: "auto" }}
                     />
