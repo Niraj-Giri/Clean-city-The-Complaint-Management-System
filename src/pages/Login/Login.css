@@ -1,0 +1,132 @@
+/* Full page layout */
+.login-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #288b7f, #34ceaa, #0da198);
+  font-family: "Poppins", sans-serif;
+  color: #1f2933;
+  overflow: hidden;
+}
+
+/* Card in center */
+.login-card {
+  background: #ffffff; /* off-white card */
+  border-radius: 18px;
+  padding: 45px 35px;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.8s ease;
+  transition: transform 0.3s ease;
+}
+
+/* Heading */
+.login-card h2 {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 28px;
+  color: #288b7f; /* match theme */
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #2b3b38;
+  margin-bottom: 25px;
+}
+
+/* Form Inputs */
+.login-form input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d0d7d4;
+  border-radius: 10px;
+  margin: 10px 0;
+  outline: none;
+  font-size: 15px;
+  background: #f9f9f9; /* off-white input */
+  color: #1f2933;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.login-form input:focus {
+  box-shadow: 0 0 10px rgba(40, 139, 127, 0.4); /* theme color shadow */
+  transform: scale(1.02);
+  border-color: #288b7f;
+}
+
+/* Button styling */
+.login-form button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+  background-color: #288b7f; /* theme color */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-form button:hover:enabled {
+  background-color: #34ceaa; /* lighter gradient shade */
+  transform: scale(1.03);
+}
+
+.login-form button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* Registration link */
+.register-link {
+  margin-top: 18px;
+  color: #1f2933;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.register-link span {
+  color: #288b7f;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.register-link:hover span {
+  color: #34ceaa;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+  .login-card {
+    width: 90%;
+    padding: 35px 20px;
+  }
+
+  .login-card h2 {
+    font-size: 24px;
+  }
+
+  .login-form input,
+  .login-form button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

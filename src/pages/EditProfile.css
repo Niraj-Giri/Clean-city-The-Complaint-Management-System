@@ -1,0 +1,102 @@
+.edit-profile-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #f4f9f8;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.edit-profile-container {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 100%;
+}
+
+.edit-profile-container h2 {
+  text-align: center;
+  color: #177a6a;
+  margin-bottom: 25px;
+}
+
+.avatar-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #55efc4;
+  margin-bottom: 10px;
+}
+
+.avatar-section input[type="file"] {
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #117a66;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #34ceaa;
+}
+
+.save-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #117a66;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.save-btn:hover {
+  background: #34ceaa;
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .edit-profile-container {
+    padding: 30px 20px;
+  }
+  .avatar-preview {
+    width: 100px;
+    height: 100px;
+  }
+}

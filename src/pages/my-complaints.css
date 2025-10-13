@@ -1,0 +1,134 @@
+.mycomplaints-page {
+  padding: 40px;
+  background: #f3f7f6;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #145c4f;
+  margin-bottom: 20px;
+}
+
+/* Filters section */
+.filters {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-bar {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1.5px solid #b7ddd2;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+.search-bar:focus {
+  border-color: #288b7f;
+  box-shadow: 0 0 8px rgba(40, 139, 127, 0.2);
+}
+
+.filter-dropdown {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #b7ddd2;
+  background: white;
+  font-size: 15px;
+  color: #145c4f;
+}
+
+/* Complaint cards */
+.complaints-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.complaint-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(8, 25, 25, 0.06);
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.complaint-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(8, 25, 25, 0.08);
+}
+
+.complaint-main h3 {
+  color: #177a6a;
+  margin: 0 0 6px 0;
+}
+
+.desc {
+  color: #333;
+  margin: 0 0 6px;
+}
+
+.location,
+.date {
+  color: #4f6b64;
+  font-size: 0.9rem;
+  margin: 2px 0;
+}
+
+/* Actions section */
+.complaint-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.status-tag {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+.status-tag.pending {
+  background: #fff4e6;
+  color: #c96c09;
+}
+.status-tag.in-progress {
+  background: #fff9e6;
+  color: #c0a20a;
+}
+.status-tag.resolved {
+  background: #e6f8f1;
+  color: #0f6b53;
+}
+
+.view-btn {
+  background: #288b7f;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+.view-btn:hover {
+  background: #34ceaa;
+  transform: scale(1.03);
+}
+
+/* No results */
+.no-results {
+  text-align: center;
+  color: #555;
+  font-size: 1rem;
+  margin-top: 30px;
+}
