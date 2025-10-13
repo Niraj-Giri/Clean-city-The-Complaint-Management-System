@@ -1,0 +1,253 @@
+/* === Admin Dashboard Styles === */
+.admin-container {
+  padding: 30px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  
+  width: 100%;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.admin-header h2 {
+  color: #333;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.manage-employee-link {
+  background-color:#288b7f;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.manage-employee-link:hover {
+  background-color: #0056b3;
+}
+
+/* Complaint Summary */
+.summary-card {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.summary-box {
+  flex: 1 1 200px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  text-align: center;
+}
+
+.summary-box h4 {
+  color: #555;
+  font-size: 16px;
+}
+
+.summary-box p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Search Section */
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.search-bar button {
+  padding: 10px 18px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #218838;
+}
+
+/* Complaints Table */
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.complaints-table th {
+  background-color: #288b7f;
+  color: #fff;
+  padding: 12px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.complaints-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.complaints-table tr:hover {
+  background-color: #f6f9ff;
+}
+
+/* Urgency Dot */
+.urgency {
+  display: inline-flex;
+  align-items: center;
+}
+
+.urgency span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 6px;
+}
+
+/* Dropdowns */
+select {.admin-container {
+  width: 95%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.manage-employee-link {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.manage-employee-link:hover {
+  background-color: #0056b3;
+}
+
+/* FILTER SECTION */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}
+
+.filter-item label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.filter-item select,
+.filter-item input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.filter-actions button {
+  padding: 8px 14px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filter-actions .clear-btn {
+  background-color: #6c757d;
+}
+
+/* TABLE */
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.complaints-table th,
+.complaints-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.complaints-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Urgency indicator */
+.urgency span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 6px;
+  border-radius: 50%;
+}
+
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Image Styling */
+img {
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}

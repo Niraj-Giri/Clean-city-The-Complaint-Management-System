@@ -7,12 +7,14 @@ import Complaint from "./pages/Complaint";
 import Admin from "./pages/Admin";
 import Employee from "./pages/Employee";
 import ManageEmployee from "./pages/AdminNavigation/ManageEmployee";
+import AdminDashboard from "./pages/AdminNavigation/AdminDashboard";
 
 function App() {
   return (
     <Routes>
       {/* Public Routes */}
       <Route path="/" element={<Login />} />
+       <Route path="/admindashboard" element={<AdminDashboard />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/ManageEmployee" element={<ManageEmployee/>}/>
