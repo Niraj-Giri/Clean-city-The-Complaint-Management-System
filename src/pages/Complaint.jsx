@@ -1,218 +1,156 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"; // add at top of file
+import "./Complaint.css";
+import { useDropzone } from "react-dropzone";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Complaint() {
   const cityAreas = {
     Delhi: ["Connaught Place", "Karol Bagh", "Lajpat Nagar"],
-    Noida: ["Sector 18", "Sector 62", "Atta Market"],
-    Gurugram: ["Sohna Road", "Cyber City", "MG Road"]
+    Mumbai: ["Andheri", "Bandra", "Dadar"],
+    Bangalore: ["Whitefield", "Electronic City", "Indiranagar"],
+    Kolkata: ["Salt Lake", "Park Street", "Gariahat"],
+    Chennai: ["T. Nagar", "Velachery", "Adyar"],
   };
-  const complaintCategory = [
-    "Waste",
-    "Broken street light",
-    "Open pathholes",
-    "Open electricity wire"
-  ];
 
-  const urgency=["High","Medium","Low"];
+  const complaintCategory = ["Waste", "Broken street light", "Open potholes", "Open electricity wire"];
+  const urgency = ["High", "Medium", "Low"];
 
-
-  const [selectedCity, setSelectedCity] = useState("Delhi"); // Default city
-  const [selectedArea, setSelectedArea] = useState(cityAreas["Delhi"][0]); // Default area
+  const [selectedCity, setSelectedCity] = useState("Delhi");
+  const [selectedArea, setSelectedArea] = useState(cityAreas["Delhi"][0]);
   const [selectedCategory, setSelectedCategory] = useState(complaintCategory[0]);
-  const [selectedUrgency,setSelectedUrgency]=useState(urgency[0]);
-  const [image, setImage] = useState(null); // <-- separate state for image
+  const [selectedUrgency, setSelectedUrgency] = useState(urgency[0]);
+  const [image, setImage] = useState(null);
+  const [values, setValues] = useState({ address: "", description: "" });
 
-  const [values, setValues] = useState({
-    address:"",
-    description:""
-  });
-
-  
-
-  // Update area when city changes
   useEffect(() => {
     setSelectedArea(cityAreas[selectedCity][0]);
   }, [selectedCity]);
 
-  const handleCityChange = (e) => {
-    setSelectedCity(e.target.value);
+  const onDrop = (acceptedFiles) => {
+    if (acceptedFiles.length > 0) setImage(acceptedFiles[0]);
   };
 
-  const handleAreaChange = (e) => {
-    setSelectedArea(e.target.value);
-  };
-
-  const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
-  };
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, accept: "image/*" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
 
-  // handle file upload
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setImage(file);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      !selectedCity ||
+      !selectedArea ||
+      !selectedCategory ||
+      !selectedUrgency ||
+      !values.address.trim() ||
+      !values.description.trim() ||
+      !image
+    ) {
+      toast.error("Please fill all the fields and upload an image!", { position: "top-center" });
+      return;
     }
+
+    toast.success("Complaint submitted successfully!", { position: "top-center" });
+
+    console.log({
+      city: selectedCity,
+      area: selectedArea,
+      category: selectedCategory,
+      urgency: selectedUrgency,
+      address: values.address,
+      description: values.description,
+      image,
+    });
+
+    setValues({ address: "", description: "" });
+    setImage(null);
   };
 
-  const handleUrgencyChange=(e)=>{
-    setSelectedUrgency(e.target.value);
-  }
-
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const token = localStorage.getItem("token"); 
-  try {
-    const formData = new FormData(); // use FormData for multipart/form-data
-    formData.append("city", selectedCity);
-    formData.append("area", selectedArea);
-    formData.append("category", selectedCategory);
-    formData.append("urgency", selectedUrgency);
-    formData.append("address", values.address);
-    formData.append("description", values.description);
-    formData.append("status","pending");
-
-    if (image) {
-      formData.append("image", image); // optional image
-    }
-
-    // send POST request to backend
-    const response = await axios.post(
-      "http://localhost:8081/cleancity/complaints",
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "Authorization": `Bearer ${token}` // uncomment if JWT is used
-        },
-      }
-    );
-
-    alert(response.data); // success message
-    setValues({ address: "", description: "" }); // reset form
-    setImage(null);
-
-  } catch (error) {
-    console.error(error);
-    alert("Failed to submit complaint");
-  }
-};
-
   return (
-    <form  onSubmit={handleSubmit}>
-      {/* City Dropdown */}
-      <label>
-        City:
-        <select value={selectedCity} onChange={handleCityChange}>
-          {Object.keys(cityAreas).map((city) => (
-            <option key={city} value={city}>
-              {city}
-            </option>
-          ))}
-        </select>
-      </label>
+    <div className="complaint-page">
+      <h2 className="complaint-title">Register a Complaint</h2>
+      <form onSubmit={handleSubmit} className="complaint-form">
+        <label>
+          City <span className="required">*</span>
+          <select value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
+            {Object.keys(cityAreas).map((city) => (
+              <option key={city} value={city}>{city}</option>
+            ))}
+          </select>
+        </label>
 
-      <br />
+        <label>
+          Area <span className="required">*</span>
+          <select value={selectedArea} onChange={(e) => setSelectedArea(e.target.value)}>
+            {cityAreas[selectedCity].map((area) => (
+              <option key={area} value={area}>{area}</option>
+            ))}
+          </select>
+        </label>
 
-      {/* Area Dropdown */}
-      <label>
-        Area:
-        <select value={selectedArea} onChange={handleAreaChange}>
-          {cityAreas[selectedCity].map((area) => (
-            <option key={area} value={area}>
-              {area}
-            </option>
-          ))}
-        </select>
-      </label>
+        <label>
+          Category <span className="required">*</span>
+          <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+            {complaintCategory.map((cat) => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
+        </label>
 
-      <br />
-
-      {/* Category Dropdown */}
-      <label>
-        Category:
-        <select value={selectedCategory} onChange={handleCategoryChange}>
-          {complaintCategory.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <br />
-
-      {/* Address input */}
-      <label>
-        Address:
-        <input
-          type="text"
-          placeholder="Enter your address"
-          name="address"
-          value={values.address}
-          onChange={handleChange}
-        />
-      </label>
-
-      <br />
-
-      {/* Image upload */}
-      <label>
-        Upload Image:
-        <input 
-          type="file" 
-          name="image"
-          accept="image/*"
-          onChange={handleFileChange} 
-        />
-      </label>
-
-      {/* Preview image */}
-      {image && (
-        <div>
-          <p>Preview:</p>
-          <img
-            src={URL.createObjectURL(image)}
-            alt="Preview"
-            width="150"
+        <label>
+          Address <span className="required">*</span>
+          <input
+            type="text"
+            name="address"
+            value={values.address}
+            onChange={handleChange}
+            placeholder="Enter your address"
           />
+        </label>
+
+        <label>
+          Urgency <span className="required">*</span>
+          <select value={selectedUrgency} onChange={(e) => setSelectedUrgency(e.target.value)}>
+            {urgency.map((urg) => (
+              <option key={urg} value={urg}>{urg}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Description <span className="required">*</span>
+          <textarea
+            name="description"
+            value={values.description}
+            onChange={handleChange}
+            placeholder="Provide details"
+          />
+        </label>
+
+        <div {...getRootProps()} className={`dropzone ${isDragActive ? "active" : ""}`}>
+          <input {...getInputProps()} />
+          {isDragActive ? (
+            <p>Drop the image here ...</p>
+          ) : (
+            <p>Drag & drop an image here, or click to select <span className="required">*</span></p>
+          )}
         </div>
-      )}
-      
-      <br />
-      <label>
-        Urgency:
-         <select value={selectedUrgency} onChange={handleUrgencyChange}>
-          {urgency.map((urgent)=>(
-           <option key={urgent} value={urgent}>
-            {urgent}
-            </option>
-          ))}
-          
-         </select>
-      </label>
-       <br />
-      <label >
-        Description:
-      <input
-      type="text"
-      name="description"
-      placeholder="Provide description"
-      value={values.description}
-       onChange={handleChange}
-      />
 
-      </label>
-      <br />
+        {image && (
+          <div className="image-preview">
+            <p>Preview:</p>
+            <img src={URL.createObjectURL(image)} alt="Preview" />
+          </div>
+        )}
 
-      <button type="submit">Submit Complain</button>
-    </form>
+        <button type="submit" className="submit-btn">Submit Complaint</button>
+      </form>
+      <ToastContainer />
+    </div>
   );
 }
 

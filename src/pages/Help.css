@@ -1,0 +1,131 @@
+.help-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #f7fafc; /* light background */
+  font-family: "Poppins", sans-serif;
+  color: #1f2933;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.help-container {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+h2 {
+  color: #0f6b53;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.help-description {
+  text-align: center;
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 25px;
+}
+
+/* FAQ Section */
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  border-left: 4px solid #288b7f;
+  padding: 12px 16px;
+  background: #f0fdf8; /* subtle greenish background */
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.faq-item:hover {
+  background: #e6f9f0;
+}
+
+.faq-question {
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #0f6b53;
+}
+
+.toggle-icon {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.faq-answer {
+  margin-top: 8px;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Links inside answers */
+.faq-answer a {
+  color: #288b7f;
+  text-decoration: underline;
+}
+
+.faq-answer a:hover {
+  color: #0f6b53;
+}
+
+/* Contact Section */
+.contact-section {
+  text-align: center;
+  padding: 15px;
+  background: #e6f9f0;
+  border-radius: 8px;
+}
+
+.contact-section h3 {
+  color: #0f6b53;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.contact-section p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+.contact-btn {
+  margin-top: 12px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #288b7f;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact-btn:hover {
+  background-color: #0f6b53;
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faq-answer {
+    font-size: 0.9rem;
+  }
+
+  .contact-btn {
+    width: 100%;
+  }
+}

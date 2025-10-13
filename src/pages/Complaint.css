@@ -1,0 +1,117 @@
+.complaint-page {
+  width: 100%;
+  padding: 40px 20px;
+  background: #f3f7f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.complaint-title {
+  font-size: 2rem;
+  color: #145c4f;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.complaint-form {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.complaint-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #2b3b38;
+}
+
+.complaint-form select,
+.complaint-form input,
+.complaint-form textarea {
+  margin-top: 6px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #d0d7d4;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.complaint-form select:focus,
+.complaint-form input:focus,
+.complaint-form textarea:focus {
+  border-color: #177a6a;
+  box-shadow: 0 0 6px rgba(23, 122, 106, 0.25);
+}
+
+.complaint-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.required {
+  color: #c96c09;
+  margin-left: 3px;
+}
+
+.dropzone {
+  margin-top: 10px;
+  padding: 20px;
+  border: 2px dashed #177a6a;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.dropzone.active {
+  background: #e6f8f1;
+  border-color: #0f6b53;
+}
+
+.image-preview {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.image-preview img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid #d0d7d4;
+  margin-top: 6px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #177a6a;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.submit-btn:hover {
+  background: #0f6b53;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .complaint-form select,
+  .complaint-form input,
+  .complaint-form textarea {
+    font-size: 0.95rem;
+  }
+  .submit-btn {
+    font-size: 1rem;
+  }
+}

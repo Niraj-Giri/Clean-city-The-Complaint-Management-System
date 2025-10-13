@@ -1,0 +1,93 @@
+.profile-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #f4f9f8;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-container {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #55efc4;
+  
+}
+
+.profile-header h2 {
+  margin: 0;
+  color: #177a6a;
+  font-size: 1.8rem;
+}
+
+.profile-header .email {
+  color: #6c757d;
+  margin-top: 5px;
+}
+
+.profile-details h3 {
+  color: #117a66;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.profile-details p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.profile-actions {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.edit-btn {
+  padding: 12px 25px;
+  background: #117a66;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+  background: #34ceaa;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 30px 20px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-header h2 {
+    font-size: 1.5rem;
+  }
+}
