@@ -1,17 +1,68 @@
-# React + Vite
+🏙️ CleanCity – Garbage Management & Complaint System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CleanCity is a web-based complaint management system that helps citizens report community issues and allows municipal authorities to manage and resolve complaints efficiently through a centralized platform.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Report garbage issues with description, image, and location
 
-## React Compiler
+Track complaint status (Pending / In Progress / Resolved)
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Admin dashboard for managing complaints
 
-## Expanding the ESLint configuration
+REST API–based backend architecture
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Clean-city-The-Complaint-Management-System
+Responsive and user-friendly UI
+
+🏗️ Project Structure
+CleanCity/
+├── frontend/   # React application
+├── backend/    # Spring Boot REST API
+└── README.md
+
+🛠️ Tech Stack
+
+Frontend: React, HTML, CSS, JavaScript
+Backend: Java, Spring Boot, Spring MVC, Spring Data JPA
+Database: MySQL / PostgreSQL
+Tools: Git, GitHub, Maven, Postman
+
+🔄 Workflow
+
+Citizen submits a garbage complaint
+
+Complaint is stored in the database
+
+Admin reviews and updates status
+
+Citizen tracks complaint progress
+
+▶️ Run Locally
+Backend
+cd backend
+mvn spring-boot:run
+
+Frontend
+cd frontend
+npm install
+npm start
+
+📈 Future Enhancements
+
+AI-based garbage image classification(in progreee)
+
+Reward system for citizens
+
+web application
+
+Multi-language support(future)
+
+👨‍💻 Developer
+
+Niraj Giri(Backend)
+B.Tech – Information Technology
+Email- nirajgiri0611@gmail.com
+
+Roju Chitrakar(Frontend)
+B.Tech – Information Technology
+Email-chitrakarroju@gmail.com
