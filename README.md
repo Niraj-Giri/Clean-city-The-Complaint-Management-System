@@ -40,7 +40,7 @@ Spring Data JPA
 
 Database
 
-MySQL / PostgreSQL
+PostgreSQL
 
 Tools
 
