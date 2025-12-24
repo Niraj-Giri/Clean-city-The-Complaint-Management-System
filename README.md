@@ -1,6 +1,6 @@
 🏙️ CleanCity – Garbage Management & Complaint System
 
-CleanCity is a web-based complaint management system that helps citizens report community issues and allows municipal authorities to manage and resolve complaints efficiently through a centralized platform.
+CleanCity is a web-based garbage complaint management system that enables citizens to report community cleanliness issues and helps municipal authorities manage and resolve complaints efficiently through a centralized digital platform.
 
 🚀 Features
 
@@ -8,11 +8,11 @@ Report garbage issues with description, image, and location
 
 Track complaint status (Pending / In Progress / Resolved)
 
-Admin dashboard for managing complaints
+Admin dashboard for complaint monitoring and management
 
 REST API–based backend architecture
 
-Responsive and user-friendly UI
+Responsive and user-friendly web interface
 
 🏗️ Project Structure
 CleanCity/
@@ -22,20 +22,43 @@ CleanCity/
 
 🛠️ Tech Stack
 
-Frontend: React, HTML, CSS, JavaScript
-Backend: Java, Spring Boot, Spring MVC, Spring Data JPA
-Database: MySQL / PostgreSQL
-Tools: Git, GitHub, Maven, Postman
+Frontend
 
-🔄 Workflow
+React
 
-Citizen submits a garbage complaint
+HTML, CSS, JavaScript
 
-Complaint is stored in the database
+Backend
 
-Admin reviews and updates status
+Java
 
-Citizen tracks complaint progress
+Spring Boot
+
+Spring MVC
+
+Spring Data JPA
+
+Database
+
+MySQL / PostgreSQL
+
+Tools
+
+Git, GitHub
+
+Maven
+
+Postman
+
+🔄 Application Workflow
+
+Citizen submits a garbage-related complaint
+
+Complaint details are stored in the database
+
+Admin reviews and updates the complaint status
+
+Citizen tracks the progress of the complaint
 
 ▶️ Run Locally
 Backend
@@ -49,20 +72,22 @@ npm start
 
 📈 Future Enhancements
 
-AI-based garbage image classification(in progreee)
+AI-based garbage image classification (in progress)
 
-Reward system for citizens
+Citizen reward system
 
-web application
+Progressive web application (PWA)
 
-Multi-language support(future)
+Multi-language support
 
-👨‍💻 Developer
+👨‍💻 Developers
 
-Niraj Giri(Backend)
+Niraj Giri
+Backend Developer
 B.Tech – Information Technology
-Email- nirajgiri0611@gmail.com
+📧 Email: nirajgiri0611@gmail.com
 
-Roju Chitrakar(Frontend)
+Roju Chitrakar
+Frontend Developer
 B.Tech – Information Technology
-Email-chitrakarroju@gmail.com
+📧 Email: chitrakarroju@gmail.com
